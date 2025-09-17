@@ -1,8 +1,16 @@
+# app.py
 import streamlit as st
 import requests
 import json
+import os
+from dotenv import load_dotenv
 
-API_KEY = Gemini_API_KEY
+# Load local .env (for local testing only)
+load_dotenv()
+
+# Prefer Streamlit secrets (deployed) then environment variable (local)
+API_KEY = st.secrets.get("API_KEY") or os.getenv("API_KEY")
+
 API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
 
 # Streamlit UI
@@ -41,4 +49,5 @@ if st.button("Summarize"):
                 st.success(summary)
             except Exception as e:
                 st.error(f"Something went wrong: {str(e)}")
+
 
