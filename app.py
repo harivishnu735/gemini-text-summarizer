@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import json
 
-API_KEY = "AIzaSyAXnrK_DLtZRct1MbOtgnUQyHNxT_MA2Ws"  # Replace with your actual API key
+API_KEY = Gemini_API_KEY
 API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
 
 # Streamlit UI
@@ -37,7 +37,8 @@ if st.button("Summarize"):
                 response = requests.post(API_URL, headers=headers, data=json.dumps(payload))
                 response.raise_for_status()
                 summary = response.json()["candidates"][0]["content"]["parts"][0]["text"]
-                st.subheader("📌 Summary:")
+                st.subheader("Summary:")
                 st.success(summary)
             except Exception as e:
                 st.error(f"Something went wrong: {str(e)}")
+
