@@ -46,5 +46,7 @@ pip install -r requirements.txt
 ## 4️ Create a .env file in the root directory and add your Gemini API key:
 Gemini_API_KEY = your_google_gemini_api_key
 
+# Note: `.env` is not included in the repo for security reasons.
+
 ## 5️ Run the app
 streamlit run app.py
