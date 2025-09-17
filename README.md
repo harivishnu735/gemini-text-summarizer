@@ -44,7 +44,7 @@ venv\Scripts\activate      # On Windows
 pip install -r requirements.txt
 
 ## 4️ Create a .env file in the root directory and add your Gemini API key:
-API_KEY=your_google_gemini_api_key
+Gemini_API_KEY = your_google_gemini_api_key
 
 ## 5️ Run the app
 streamlit run app.py
