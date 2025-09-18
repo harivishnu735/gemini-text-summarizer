@@ -1,23 +1,28 @@
 # Gemini Text Summarizer
 
-A simple AI-powered text summarization app built with **Python** and **Streamlit**, using **Google Gemini API**.  
-This app allows users to paste long or complex text and get a clear, concise summary for easier understanding.
+An AI-powered text summarization app built with **Python** and **Streamlit**, using the **Google Gemini API**.  
+This app allows users to upload documents or paste text, and get a clear, concise summary in multiple languages.
 
 ---
 
 ## Features
-- Summarizes long text into simple, easy-to-read content.  
-- Clean user interface with **Streamlit**.  
-- Integrates with **Google Gemini REST API**.  
-- Handles invalid or empty input gracefully.  
+-  **File Upload Support**: Upload **PDF, TXT, or DOCX** files.  
+-  **Multi-language summaries**: English, Telugu, Hindi, Spanish, French, German.  
+-  **Paste text option**: Works even without file upload.  
+-  **Download summary**: Save the result as a `.txt` file.  
+-  **Error handling**: Warns if no input or missing API key.  
+-  Clean and simple **Streamlit UI**. 
 
 ---
 
 ## Tech Stack
-- **Python 3.9+**
-- **Streamlit** (for the UI)  
+- **Python 3.9+**  
+- **Streamlit** (for UI)  
 - **Requests** (for REST API calls)  
-- **Google Gemini API** (for summarization)  
+- **pypdf** (PDF text extraction)  
+- **python-docx** (Word file parsing)  
+- **python-dotenv** (for local `.env` API keys)  
+- **Google Gemini API**  
 
 ---
 
