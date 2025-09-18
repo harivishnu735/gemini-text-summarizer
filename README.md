@@ -55,3 +55,9 @@ Gemini_API_KEY = your_google_gemini_api_key
 
 ## 5️ Run the app
 streamlit run app.py
+
+# Author
+Hari Vishnu
+Node.js & Python Developer
+LinkedIn - www.linkedin.com/in/hari-vishnu-dadi
+GitHub - https://github.com/harivishnu735
