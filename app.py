@@ -44,6 +44,219 @@ st.set_page_config(
     layout="centered"
 )
 
+
+# --------------------------------------------------
+# PREMIUM QUICKREAD UI THEME
+# --------------------------------------------------
+
+st.markdown("""
+<style>
+
+/* Main application background */
+.stApp {
+    background:
+        radial-gradient(ellipse at 10% 0%, #24204b 0%, transparent 38%),
+        radial-gradient(ellipse at 90% 20%, #102f49 0%, transparent 35%),
+        #0b1020;
+    color: #f8fafc;
+}
+
+/* Main content width and spacing */
+.block-container {
+    max-width: 1050px;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+
+/* Header */
+header[data-testid="stHeader"] {
+    background: transparent;
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 42px 25px 32px;
+    margin-bottom: 25px;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(167, 139, 250, 0.4);
+    color: #c4b5fd;
+    padding: 8px 17px;
+    border-radius: 30px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(34px, 5vw, 52px);
+    font-weight: 800;
+    letter-spacing: -1.8px;
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #c4b5fd,
+        #67e8f9
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 14px;
+}
+
+.hero p {
+    color: #a5b4cc;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Section headings */
+h2, h3 {
+    color: #f1f5f9 !important;
+    font-weight: 700 !important;
+}
+
+/* File uploader */
+[data-testid="stFileUploader"] {
+    background: rgba(21, 29, 50, 0.85);
+    border: 1px solid #34415e;
+    border-radius: 16px;
+    padding: 15px;
+}
+
+[data-testid="stFileUploaderDropzone"] {
+    background: #18233a;
+    border: 1px dashed #6473a0;
+    border-radius: 12px;
+}
+
+[data-testid="stFileUploaderDropzone"] * {
+    color: #e2e8f0 !important;
+}
+
+/* Text area */
+.stTextArea textarea {
+    background: #151d32 !important;
+    color: #f8fafc !important;
+    border: 1px solid #35435f !important;
+    border-radius: 12px !important;
+    font-size: 14px !important;
+}
+
+.stTextArea textarea:focus {
+    border-color: #8b5cf6 !important;
+    box-shadow: 0 0 0 1px #8b5cf6 !important;
+}
+
+/* Select box */
+[data-testid="stSelectbox"] > div > div {
+    background: #151d32 !important;
+    border-color: #35435f !important;
+    border-radius: 10px !important;
+    color: white !important;
+}
+
+/* Buttons */
+.stButton button,
+.stDownloadButton button {
+    background: linear-gradient(
+        100deg,
+        #7c3aed,
+        #4f46e5
+    ) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 10px 24px !important;
+    font-weight: 650 !important;
+    transition: all 0.2s ease;
+}
+
+.stButton button:hover,
+.stDownloadButton button:hover {
+    background: linear-gradient(
+        100deg,
+        #6d28d9,
+        #4338ca
+    ) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(124, 58, 237, 0.3);
+}
+
+/* Labels */
+label, .stMarkdown p {
+    color: #d1d9e8;
+}
+
+/* Progress bar */
+.stProgress > div > div > div > div {
+    background: linear-gradient(
+        90deg,
+        #8b5cf6,
+        #22d3ee
+    );
+}
+
+/* Alerts */
+[data-testid="stAlert"] {
+    border-radius: 12px;
+}
+
+/* Dividers */
+hr {
+    border-color: #29344c;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    color: #8290a9;
+    font-size: 13px;
+    padding: 25px 10px;
+    border-top: 1px solid #29344c;
+    margin-top: 45px;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .block-container {
+        padding: 1rem 1rem 3rem;
+    }
+
+    .hero {
+        padding: 30px 10px;
+    }
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+
+# --------------------------------------------------
+# PREMIUM HERO SECTION
+# --------------------------------------------------
+
+st.markdown("""
+<div class="hero">
+
+    <div class="hero-badge">
+        ✨ AI POWERED DOCUMENT INTELLIGENCE
+    </div>
+
+    <h1>QuickRead AI</h1>
+
+    <p>
+        Transform lengthy documents into meaningful insights.<br>
+        Upload, summarize and understand your content
+        in multiple languages.
+    </p>
+
+</div>
+""", unsafe_allow_html=True)
+
 st.title("📚 QuickRead - AI Text Summarizer")
 
 st.caption(
@@ -420,12 +633,16 @@ if st.button("✨ Summarize", type="primary"):
                     language
                 )
 
-                st.subheader(
-                    f"📌 Summary in {language}"
-                )
+                st.markdown("### ✨ Your AI Summary")
 
-                st.success(summary)
-
+                with st.container(border=True):
+                
+                    st.markdown(f"**Summary Language:** {language}")
+                
+                    st.divider()
+                
+                    st.markdown(summary)
+                
                 st.download_button(
                     label="⬇️ Download Summary",
                     data=summary,
